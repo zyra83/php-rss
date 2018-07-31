@@ -1,4 +1,5 @@
 <?php
+    include "Config.php";
 	header("Content-type:text/html; charset=UTF-8");
     $now = date_format(date_create(), "Y-m-d H:i:s")
 ?>
@@ -8,8 +9,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gérer les actalités</title>
         <link rel="stylesheet" media="screen" href="static/css/ecran.css">
-        <script type="text/javascript" src="static/js/jquery-1.6.2.min.js" charset="UTF-8"></script>
-        <script type="text/javascript" src="static/js/script.js" charset="UTF-8"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -51,5 +50,7 @@
                 </div>
             </form>
         </div>
+        <script type="text/javascript" src="static/js/jquery-1.6.2.min.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="static/js/script.js?version=<?php echo date_format(date_create(), "U") ?>" charset="UTF-8"></script>
     </body>
 </html>

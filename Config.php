@@ -1,5 +1,27 @@
 <?php
 
+class ValidationException extends Exception
+{
+    // Redéfinissez l'exception ainsi le message n'est pas facultatif
+  public function __construct($message, $code = 0, Exception $previous = null) {
+
+    // traitement personnalisé que vous voulez réaliser ...
+
+    // assurez-vous que tout a été assigné proprement
+    parent::__construct($message, $code, $previous);
+  }
+
+  // chaîne personnalisée représentant l'objet
+  public function __toString() {
+    return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
+  }
+
+  public function customFunction() {
+    echo "Une fonction personnalisée pour ce type d'exception\n";
+  }
+}
+
+
 /**
  * @author mickael.benoit
  * @version 26/04/2011
@@ -60,3 +82,5 @@ class Config {
     const FORMAT_SQL_DATETIME = "Y-m-d H:i:s";
     const TIME_ZONE = "Europe/Paris"; //Fuseau horaire de l'application.
 }
+
+date_default_timezone_set(Config::TIME_ZONE);

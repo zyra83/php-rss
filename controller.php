@@ -14,22 +14,22 @@ function isSetNotNullNotEmpty($var){
     return ( isset($var) && $var !== NULL && trim($var) !== "" );
 }
 
-if (isset($_POST["do"]) && in_array($_POST["do"], $choix)) {
-    switch ($_POST["do"]) {
+if (isset($_GET["do"]) && in_array($_GET["do"], $choix)) {
+    switch ($_GET["do"]) {
         case "c": // CREATE
         case "u": // UPDATE
-            $isUpdate = $_POST['do'] === 'u';
+            $isUpdate = $_GET['do'] === 'u';
             if($isUpdate){
                 $statement = 'UPDATE rss_item SET title = :title, link = :link, pubDate = :pubDate, description = :description, channel_id = :channel_id WHERE id = :id;';
             } else {
                 $statement = 'INSERT INTO rss_item (title, link, description, pubDate, channel_id) VALUES (:title, :link, :description, :pubDate, :channel_id);';
             }
-
-            $e->e = null;
+            
+            $e = new \stdClass();
             
             try {
                 if (    
-                    (isSetNotNullNotEmpty($_POST['id']) && ($isUpdate))
+                    (isSetNotNullNotEmpty($_POST['id']) === ($isUpdate))
                     &&
                     isSetNotNullNotEmpty($_POST[FORM_TITLE])
                     &&

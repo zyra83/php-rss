@@ -1,12 +1,14 @@
 <?php
 
+include 'database.php';
+
 $expires = $date = date_format(date_create(NULL, timezone_open('GMT')), DATE_RFC1036);
 header("Content-type:application/xml; charset=UTF-8");
 header("Date: $expires");
 header("Cache-control: max-age=0");
 header("Expires: $expires");
 
-include 'database.php';
+
 $statement = 'SELECT * FROM rss_channel WHERE name = "pouic"';
 $s = $db->query($statement);
 $o = $s->fetch();
