@@ -12,10 +12,13 @@ body {
     font-size: 12px;
     font-family: sans-serif;
     display: block;
+    /* https://www.toptal.com/designers/subtlepatterns/doodles/ */
+    background: url(doodles.png)
 }
 #wrapper{
     margin: 0 auto;
     width: 474px;
+    background: #ffffff7a;
 }
 form{
     width: 464px;
@@ -36,7 +39,7 @@ form{
     display: block;
     width: 452px
 }
-.formContent input[type=text], .formContent select, .formContent textarea{
+.formContent input[type=text], .formContent input[type=url], .formContent select, .formContent textarea{
     margin: 0;
     padding: 5px;
     border: 1px solid #777;
@@ -50,6 +53,7 @@ form{
 .formContent input[type=submit], .formContent input[type=reset]{
     width: 452px;
     padding: 10px;
+    margin: 1em auto;
 }
 
 .formContent textarea{

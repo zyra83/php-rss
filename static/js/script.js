@@ -4,8 +4,9 @@ jQuery(document).ready(function () {
     rssCtrl.l(); // Rempli la liste des actualités
     rssCtrl.clr(); // Initialise le formulaire
 
-    $("form").submit(function () {
+    $("form").submit(function (e) {
         rssCtrl.s($(this).serializeArray());
+        e.preventDefault();
         return false;
     });
 
@@ -22,7 +23,7 @@ var rssCtrl = {
             function (data, textStatus) {
                 var items = [];
                 $.each(data, function (key, item) {
-                    console.log(item)
+
                     items.push('<li id="item-' + item.id + '">' +
                         '<span>' + item.title + '</span>&nbsp;' +
                         '<a href="javascript:void(0)" title="supprimer cette actu." class="delete">del.</a>' +
@@ -57,7 +58,6 @@ var rssCtrl = {
             function (data, textStatus) {
                 var items = [];
                 $.each(data, function (key, item) {
-                    console.log(item)
                     items.push('<option value="' + item.id + '">' + item.name + '</option>');
                 });
                 $('#channel').empty().append(items.join(''));

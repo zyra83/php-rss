@@ -27,30 +27,33 @@
                     <input type="hidden" id="id" name="id">
                     <label for="channel" title="Fil RSS auquel l'actualité appartient.">
                         <span>Channel</span>
-                        <select id="channel" name="channel"></select>
+                        <select required id="channel" name="channel"></select>
                     </label>
                     <label for="title" title="Titre de l'actualité.">
                         <span>Titre</span>
-                        <input placeholder="titre" type="text" id="title" name="title">
+                        <input required placeholder="titre" type="text" id="title" name="title">
                     </label>
                     <label for="link" title="Lien web vers lequel pointe l'actualité. Laisser vide si non applicable.">
                         <span>Lien</span>
-                        <input placeholder="http://" type="text" id="link" name="link">
+                        <input placeholder="http://" type="url" id="link" name="link" >
                     </label>
                     <label for="pubDate" title="Date de publication de l'actualité. (YYYY-MM-DD HH:mm)">
                         <span>Date de publication</span>
-                        <input placeholder="<?php echo $now ?>" type="text" id="pubDate" name="pubDate">
+                        <input required placeholder="<?php echo $now ?>" type="text" id="pubDate" name="pubDate">
                     </label>
                     <label for="description" title="Contenu de l'actualité.">
                         <span>Description</span>
-                        <textarea placeholder="résumé de l'actualité" id="description" name="description"></textarea>
+                        <textarea required placeholder="résumé de l'actualité" id="description" name="description"></textarea>
                     </label>
                     <input type="submit" title="Enregistre l'actualité dans le fil RSS." name="enregistrer" value="enregistrer">
                     <input type="reset" title="Vider les champs du formulaire." id="clear-btn" name="clear" value="vider les champs">
                 </div>
             </form>
         </div>
-        <script type="text/javascript" src="static/js/jquery-1.6.2.min.js" charset="UTF-8"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
         <script type="text/javascript" src="static/js/script.js?version=<?php echo date_format(date_create(), "U") ?>" charset="UTF-8"></script>
     </body>
 </html>
